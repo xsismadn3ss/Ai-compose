@@ -1,8 +1,8 @@
+# __init__.py
 *.db
 *.py[cod]
 *.pyc
 .venv
 .web
-# __init__.py
 __pycache__/
 assets/external/
