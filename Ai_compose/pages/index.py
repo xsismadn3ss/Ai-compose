@@ -6,7 +6,7 @@ from ..components.cards import card
 from ..components.credits import credit 
 from ..components.footer import footer 
 from ..components.navbar import signup_button
-from ..components.sign_up import signup_form
+from ..components.github_card import github_card
 
 @rx.page(route="/", title="Home")
 def index():
@@ -25,7 +25,16 @@ def index():
         card(),
         rx.divider(),
         rx.text("Créditos",weight="bold", size="6", margin_bottom="5vh", margin_top="5vh"),
-        credit(),
+        rx.flex(
+            github_card("Haluuuu"),
+            github_card("xsismadn3ss"),
+            github_card("Alexandra-Rivera"),   
+            direction="row",
+            justify="center",
+            align="center",
+            spacing="9",
+            margin_bottom="5vh"
+        ),
         footer(),
         spacing="10"
     )
