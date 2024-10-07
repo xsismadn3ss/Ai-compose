@@ -59,5 +59,33 @@ def navbar()-> rx.Component:
                 direction="row",
             ),
             rx.divider(),
+        ),
+        
+        rx.mobile_and_tablet(
+            rx.flex(
+                rx.center(
+                    rx.box(
+                        rx.icon("music-2"),
+                        radius="full",
+                        padding="1rem"
+                    ),
+                    rx.heading("Ai Compose", as_="h2"),     
+                    spacing="3",         
+                ),
+                rx.center(
+                    navbar_link("Home", "/"),
+                    navbar_link("Piano Roll", "/piano_roll"),
+                    navbar_link("Documentación", "/#"),
+                    rx.link(rx.button("Chat", rx.icon("message-circle-more"), size="3", variant="outline"), href="/chat"), 
+                    login_button(),                  
+                    rx.color_mode.button(),
+                    spacing="4",
+                    margin="1vh 0",
+                ),
+                spacing="8",
+                justify="between",
+                direction="row",
+            ),
+            rx.divider(),
         )
     )
