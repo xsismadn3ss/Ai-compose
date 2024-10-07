@@ -3,7 +3,6 @@ from rxconfig import config
 
 from ..components.navbar import navbar
 from ..components.cards import card
-from ..components.credits import credit 
 from ..components.footer import footer 
 from ..components.navbar import signup_button
 from ..components.github_card import github_card
