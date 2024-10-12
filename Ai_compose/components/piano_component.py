@@ -17,9 +17,13 @@ class pianoState(rx.State):
         
     #Se elimina la nota final de la lista
     def delete_note(self):
-        if len(self.data) >= 1:
-            self.data.pop()
-            self.payload.pop()
+        try:
+            if len(self.data) >= 1:
+                self.data.pop()
+                self.payload.pop()
+        except Exception as e:
+            return rx.toast.warning("Ya no hay mas notas que eliminar")
+    
            
     #Se genera la secuencia de numeros
     def send_notes(self) -> rx.Component:

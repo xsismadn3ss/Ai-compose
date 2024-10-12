@@ -1,5 +1,5 @@
 import reflex as rx
-from ..components.navbar import navbar
+from ..components.navbar.navbar import navbar
 
 @rx.page(route="/chats", title="chats")
 def chat()->rx.Component:

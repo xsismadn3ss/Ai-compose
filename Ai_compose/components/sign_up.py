@@ -140,7 +140,6 @@ def signup_form() -> rx.Component:
             width="100%",
         ),
         size="4",
-        max_width="28em",
-        width="100%",
+        max_width="60rem",
         margin_top="5vh"
     )
