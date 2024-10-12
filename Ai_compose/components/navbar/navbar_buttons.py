@@ -7,12 +7,12 @@ def icon_button(icon_name: str):
 
 
 def navbar_link(text: str, url: str):
-    return rx.link(rx.text(text, size="3", weight="medium"), href=url)
+    return rx.link(rx.text(text, size="3", weight="bold"), href=url)
 
 
 def signup_button():
     return rx.dialog.root(
-        rx.dialog.trigger(rx.button("Comienza a aprender")),
+        rx.dialog.trigger(rx.button("Comienza a aprender", size='4', border_radius="0.6em", cursor='pointer')),
         login_form(),
     )
 
