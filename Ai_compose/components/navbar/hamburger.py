@@ -1,5 +1,5 @@
-
 import reflex as rx
+from ...Session.session import Session
 
 
 class LoginState(rx.State):
@@ -8,6 +8,45 @@ class LoginState(rx.State):
     
     def logout_toast(self) -> rx.Component:
         return rx.toast.warning("Implementar inicion de sesión")
+
+def theme_buttons():
+    return (
+        rx.menu.sub_content(
+            rx.color_mode_cond(
+                rx.menu.item(
+                    rx.flex(
+                        rx.icon("moon-star"),
+                        rx.text("Modo oscuro"),
+                        spacing="2",
+                    ),
+                    on_click=rx.style.set_color_mode("dark"),
+                ),
+                rx.menu.item(
+                    rx.flex(rx.icon("sun"), rx.text("Modo claro"), spacing="2"),
+                    on_click=rx.style.set_color_mode("light"),
+                ),
+            ),
+            rx.menu.item(
+                rx.flex(rx.icon("laptop"), rx.text("Sistema"), spacing="2"),
+                on_click=rx.style.set_color_mode("system"),
+            ),
+        ),
+    )
+
+def login_logout_button():
+    condition = Session.is_authenticated
+    return rx.cond(
+        condition=condition,
+        c1= rx.menu.item(
+            "Cerrar sesión",
+            on_click=Session.logout()
+        ),
+        c2= rx.menu.item(
+            "Iniciar sesión",
+            on_click= LoginState.login_toast()
+        ),
+    )
+
 
 def hamburger():
     return rx.menu.root(
@@ -18,33 +57,9 @@ def hamburger():
             rx.menu.separator(),
             rx.menu.sub(
                 rx.menu.sub_trigger("Tema"),
-                rx.menu.sub_content(
-                    rx.color_mode_cond(
-                        rx.menu.item(
-                            rx.flex(
-                                rx.icon("moon-star"),
-                                rx.text("Modo oscuro"),
-                                spacing="2",
-                            ),
-                            on_click=rx.style.set_color_mode("dark"),
-                        ),
-                        rx.menu.item(
-                            rx.flex(rx.icon("sun"), rx.text("Modo claro"), spacing="2"),
-                            on_click=rx.style.set_color_mode("light"),
-                        ),
-                    ),
-                    rx.menu.item(
-                        rx.flex(rx.icon("laptop"), rx.text("Sistema"), spacing="2"),
-                        on_click=rx.style.set_color_mode("system"),
-                    ),
-                ),
+                theme_buttons()
             ),
             rx.menu.separator(),
-            rx.menu.item(
-                'Iniciar sesión', on_click=LoginState.login_toast()
-            ),
-            rx.menu.item(
-                rx.text("Cerrar sesión", color_scheme="red"), on_click=LoginState.login_toast()
-            )
+            login_logout_button()
         ),
     )
