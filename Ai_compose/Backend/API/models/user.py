@@ -9,14 +9,14 @@ class User(BaseModel):
 
     def login_user(self, username: str, password: str):
         route = self.login
-        data = json.loads({"username": username, "password": password})
-        return self.__api.request(method=Methods.POST, data=data, route=route)
+        data = json.dumps({"username": username, "password": password})
+        return self.api.request(method=Methods.POST, data=data, route=route)
 
     def register_user(self, username: str, email: str, password: str):
         route = self.register
-        data = json.loads({"username": username, "email": email, "password": password})
-        return self.__api.request(method=Methods.POST, data=data, route=route)
+        data = json.dumps({"username": username, "email": email, "password": password})
+        return self.api.request(method=Methods.POST, data=data, route=route)
 
     def user_account(self, token: str, id: int):
-        route = self.account
-        return self.__api.request(method=Methods.GET, route=route, token=token)
+        route = self.account.format(id)
+        return self.api.request(method=Methods.GET, route=route, token=token)
