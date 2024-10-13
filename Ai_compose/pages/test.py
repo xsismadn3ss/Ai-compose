@@ -2,8 +2,9 @@ import reflex as rx
 
 from Ai_compose.components.cards import features_cards
 from Ai_compose.components.github_card import github_card
-from Ai_compose.components.navbar.navbar import navbar, signup_button
+from Ai_compose.components.login_form import login_form
 from ..templates.master import template
+from Ai_compose.Session.sesionState import SessionState
 
 
 @rx.page(route="/test", title="Test")
@@ -26,17 +27,18 @@ def test_page():
                 margin_bottom="2vh",
             ),
         ),
-        signup_button(),
-        rx.text("Funcionalidades y documentación", weight="bold", size="6", margin_top="5rem"),
-        features_cards(),
+        rx.card(
+            login_form(),
+            width="20rem"
+        ),
         rx.divider(),
         rx.text(
             "Créditos", weight="bold", size="6", margin_bottom="5vh", margin_top="5vh"
         ),
         rx.flex(
-            # github_card(username="Haluuuu", description='Backend developer'),
-            # github_card(username="xsismadn3ss", description='Fullstack developer'),
-            # github_card("Alexandra-Rivera", description='Frontend developer'),
+            github_card(username="Haluuuu", description='Backend developer'),
+            github_card(username="xsismadn3ss", description='Fullstack developer'),
+            github_card("Alexandra-Rivera", description='Frontend developer'),
             direction="row",
             justify="center",
             align="center",

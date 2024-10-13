@@ -2,7 +2,8 @@ import reflex as rx
 from .logo import navbar_logo
 from .hamburger import hamburger
 from .theme_switcher import theme_switch
-from .navbar_buttons import navbar_link, login_button
+from .navbar_buttons import navbar_link, login_button, logout_button
+from Ai_compose.Session.sesionState import SessionState
 
 
 def navbar() -> rx.Component:
@@ -24,7 +25,11 @@ def navbar() -> rx.Component:
                         href="/chats",
                     ),
                     rx.tooltip(theme_switch(), content="Cambiar tema"),
-                    rx.tooltip(login_button(), content="Iniciar sesión"),
+                    rx.cond(
+                        condition=SessionState.authenticated,
+                        c1=logout_button(),
+                        c2=login_button(),
+                    ),
                     align="center",
                     margin_x="1rem",
                     spacing="4",
