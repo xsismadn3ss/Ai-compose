@@ -3,27 +3,34 @@ import requests
 
 
 def github_card(username: str, description: str = "") -> rx.Component:
-    try:
-        github_data = requests.get(f"https://api.github.com/users/{username}").json()
-        profile_image = github_data["avatar_url"]
+    github_data = requests.get(f"https://api.github.com/users/{username}").json()
+    
+    if 'html_url' in github_data:
         name = github_data["name"]
         url = github_data["html_url"]
         if len(name) > 10:
             name = name[0:10] + "..."
-    except Exception as e:
+        avatar = rx.avatar(
+            src=github_data["avatar_url"],
+            radius='full',
+            size='7',
+            margin_bottom='0.5rem'
+        )
+
+    else:
         url = f"https:/github.com/{username}"
-        name = None
+        name = ''
+        avatar = rx.avatar(
+            fallback=f"{username[0:2]}".upper(),
+            size='7',
+            radius='full',
+            margin_bottom='0.5rem'
+        )
 
     return rx.card(
         rx.link(
             rx.vstack(
-                rx.avatar(
-                    src=profile_image,
-                    fallback=f"{username[0:2]}".upper(),
-                    radius="full",
-                    size="7",
-                    margin_bottom="0.5rem",
-                ),
+                avatar,
                 rx.color_mode_cond(
                     rx.text(name, size="3", weight="bold", color="#202020"),
                     rx.text(name, size="3", weight="bold", color="#d1d1d1"),
