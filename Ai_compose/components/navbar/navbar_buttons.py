@@ -1,6 +1,6 @@
 import reflex as rx
 from ..login_form import login_form_dialog
-from ...Session.session import Session
+from Ai_compose.state.auth import AuthState
 
 
 def icon_button(icon_name: str):
@@ -11,10 +11,10 @@ def navbar_link(text: str, url: str):
     return rx.link(rx.text(text, size="3", weight="bold"), href=url)
 
 
-def signup_button():
+def signup_button(auth:AuthState):
     return rx.dialog.root(
         rx.dialog.trigger(rx.button("Comienza a aprender", size='4', border_radius="0.6em", cursor='pointer')),
-        login_form_dialog(),
+        login_form_dialog(auth),
     )
 
 def logout_button():
@@ -22,11 +22,11 @@ def logout_button():
         "Cerrar sesión",
         size = "2",
         border_radius = '0.6rem',
-        on_click = Session.logout()
+        on_click = AuthState.logout
     )
 
 
-def login_button():
+def login_button(auth:AuthState):
     return rx.flex(
         rx.dialog.root(
             rx.dialog.trigger(
@@ -36,6 +36,6 @@ def login_button():
                     border_radius = "0.6rem"
                 )
             ),
-            login_form_dialog(),
+            login_form_dialog(auth),
         )
     )
