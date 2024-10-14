@@ -4,6 +4,6 @@ from ..components.navbar.navbar import navbar
 @rx.page(route="/chats", title="chats")
 def chat()->rx.Component:
     return rx.container(
-        navbar(),
+        # navbar(),
         rx.heading("Chats", margin_top="5vh")
     )
