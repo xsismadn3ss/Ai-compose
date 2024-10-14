@@ -1,5 +1,5 @@
 import reflex as rx
-from ...Session.session import Session
+from Ai_compose.state.auth import AuthState
 
 
 class LoginState(rx.State):
@@ -33,13 +33,12 @@ def theme_buttons():
         ),
     )
 
-def login_logout_button():
-    condition = Session.is_authenticated
+def login_logout_button(auth:AuthState):
     return rx.cond(
-        condition=condition,
+        condition=auth.authenticated,
         c1= rx.menu.item(
             "Cerrar sesión",
-            on_click=Session.logout()
+            on_click=auth.logout()
         ),
         c2= rx.menu.item(
             "Iniciar sesión",
@@ -48,7 +47,7 @@ def login_logout_button():
     )
 
 
-def hamburger():
+def hamburger(auth):
     return rx.menu.root(
         rx.menu.trigger(rx.icon_button("menu", variant="ghost", margin_right="1rem")),
         rx.menu.content(
@@ -60,6 +59,6 @@ def hamburger():
                 theme_buttons()
             ),
             rx.menu.separator(),
-            login_logout_button()
+            login_logout_button(auth)
         ),
     )
