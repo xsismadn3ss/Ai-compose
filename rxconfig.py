@@ -19,3 +19,8 @@ white_keys_style = {
     "margin_x": "0.2em",
     "color": "#202020",
 }
+
+#efecto neón 
+glow_bg_light = {
+    'box_shadow': '0px 0px 4.5rem 1rem #9563ee',
+}

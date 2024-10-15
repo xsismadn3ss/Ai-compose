@@ -17,8 +17,6 @@ routes = Routes(
     new_chat="/chat/create/",
 )
 
-print(getenv("SERVER_URL"))
-
 api = API(
     server_url=getenv("SERVER_URL"),
     headers={"Accepts": "*/*", "Authorization": "", "Content-Type": "application/json"},

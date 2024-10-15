@@ -1,146 +1,102 @@
 import reflex as rx
 
-def signup_form() -> rx.Component:
-    return rx.card(
-        rx.vstack(
-            rx.center(
+
+def form_header():
+    return rx.flex(
+        rx.card(
+            rx.flex(
                 rx.icon("music-2"),
-                rx.heading("Bienvenido a Ai Compose"),
-                rx.heading(
-                    "Crea una cuenta",
-                    size="6",
-                    as_="h2",
-                    text_align="center",
-                    width="100%",
-                ),
-                direction="column",
-                spacing="5",
-                width="100%",
-            ),
-            rx.vstack(
-                rx.text(
-                    "Username",
-                    size="3",
-                    weight="medium",
-                    text_align="left",
-                    width="100%",
-                ),
-                rx.input(
-                    placeholder="Ingresa tu username",
-                    type="text",
-                    size="3",
-                    width="100%",
-                ),
-                justify="start",
-                spacing="2",
-                width="100%",
-            ),
-            rx.vstack(
-                rx.text(
-                    "Email",
-                    size="3",
-                    weight="medium",
-                    text_align="left",
-                    width="100%",
-                ),
-                rx.input(
-                    placeholder="correo@ejemplo.com",
-                    type="email",
-                    size="3",
-                    width="100%",
-                ),
-                justify="start",
-                spacing="2",
-                width="100%",
-            ),
-            rx.hstack(
-                rx.vstack(
-                    rx.text(
-                        "Nombres",
-                        size="3",
-                        weight="medium",
-                        text_align="left",
-                        width="100%",
-                    ),
-                    rx.input(
-                        placeholder="Ingresa tus nombres",
-                        type="text",
-                        size="3",
-                        width="100%",
-                    ),
-                    justify="start",
-                    spacing="2",
-                    width="100%",
-                ), 
-                
-                rx.vstack(
-                    rx.text(
-                        "Apellidos",
-                        size="3",
-                        weight="medium",
-                        text_align="left",
-                        width="100%",
-                    ),
-                    rx.input(
-                        placeholder="Ingresa tus apellidos",
-                        type="text",
-                        size="3",
-                        width="100%",
-                    ),
-                    justify="start",
-                    spacing="2",
-                    width="100%",
-                ),
-            ),
-            rx.vstack(
-                rx.text(
-                    "Password",
-                    size="3",
-                    weight="medium",
-                    text_align="left",
-                    width="100%",
-                ),
-                rx.input(
-                    placeholder="Ingresa tu contraseña",
-                    type="password",
-                    size="3",
-                    width="100%",
-                ),
-                justify="start",
-                spacing="2",
-                width="100%",
-            ),
-            rx.vstack(
-                rx.text(
-                    "Confirmar contraseña",
-                    size="3",
-                    weight="medium",
-                    text_align="left",
-                    width="100%",
-                ),
-                rx.input(
-                    placeholder="Confirma tu contraseña",
-                    type="password",
-                    size="3",
-                    width="100%",
-                ),
-                justify="start",
-                spacing="2",
-                width="100%",
-            ),
-            rx.button("Registrarse", size="3", width="100%"),
-            rx.center(
-                rx.text("¿Ya estás registrado?", size="3"),
-                rx.link("Logéate", href="#", size="3"),
-                opacity="0.8",
-                spacing="2",
+                rx.heading("Ai Compose"),
                 direction="row",
             ),
-            spacing="6",
-            width="100%",
         ),
-        size="4",
-        max_width="28em",
-        width="100%",
-        margin_top="5vh"
+        rx.heading("Crea una cuenta", as_="h4"),
+        direction="column",
+        align="center",
+        spacing="2",
+    )
+
+
+def form_fields():
+    return rx.flex(
+        rx.text("Username", weight="bold"),
+        rx.input(placeholder="Ingresa tu username", type="text"),
+        rx.text("Email", weight="bold"),
+        rx.input(placeholder="correo@ejemplo.com", type="email"),
+        rx.mobile_and_tablet(
+            rx.vstack(
+                rx.flex(
+                    rx.text("Nombres", weight="bold", text_align="left"),
+                    rx.input(placeholder="Ingresa tus nombres", type="text"),
+                    spacing="2",
+                    direction="column",
+                    width="100%",
+                ),
+                rx.flex(
+                    rx.text("Apellidos", weight="bold"),
+                    rx.input(placeholder="Ingresa tus apellidos", type="text"),
+                    spacing="2",
+                    direction="column",
+                    width="100%",
+                ),
+                spacing="2",
+                direction="column",
+            ),
+        ),
+        rx.desktop_only(
+            rx.flex(
+                rx.flex(
+                    rx.text("Nombres", weight="bold", text_align="left"),
+                    rx.input(placeholder="Ingresa tus nombres", type="text"),
+                    spacing="2",
+                    direction="column",
+                    width="100%",
+                ),
+                rx.flex(
+                    rx.text("Apellidos", weight="bold"),
+                    rx.input(placeholder="Ingresa tus apellidos", type="text"),
+                    spacing="2",
+                    direction="column",
+                    width="100%",
+                ),
+                justify="between",
+                spacing="2",
+            ),
+        ),
+        rx.text("Password", weight="bold"),
+        rx.input(placeholder="Ingresa tu contraseña", type="password"),
+        rx.text("Confirmar contraseña", weight="bold"),
+        rx.input(placeholder="Confirma tu contraseña", type="password"),
+        direction="column",
+        margin_y="3vh",
+        spacing="5",
+    )
+
+
+def register_button():
+    return (rx.button("Registrarse", size="3", width="100%"),)
+
+
+def signup_form() -> rx.Component:
+    return rx.container(
+        rx.desktop_only(
+            rx.card(
+                form_header(),
+                form_fields(),
+                register_button(),
+                padding="3em",
+                width="40rem",
+                margin_top="0.3em",
+            ),
+        ),
+        rx.mobile_and_tablet(
+            rx.card(
+                form_header(),
+                form_fields(),
+                register_button(),
+                padding="3em",
+                max_width="40rem",
+                margin_top="1vh",
+            ),
+        ),
     )

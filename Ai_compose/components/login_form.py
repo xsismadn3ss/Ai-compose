@@ -1,39 +1,62 @@
 import reflex as rx
+from Ai_compose.API.api_config import user
+from Ai_compose.state.auth import AuthState
 
-def login_form():
-    return rx.container(
-        rx.dialog.content(
-            rx.flex(
-                rx.card(
-                    rx.flex(
-                        rx.icon("music-2"), rx.heading(" Ai Compose"),
-                        direction="row",                      
-                    ),
+
+def form_header():
+    return rx.flex(
+            rx.card(
+                rx.flex(
+                    rx.icon("music-2"),
+                    rx.heading(" Ai Compose"),
+                    direction="row",
                 ),
-                rx.heading("Ingresa tus credenciales", as_="h4"),
-                direction="column",
-                align="center",
-                spacing="2"          
             ),
-            rx.flex(
-                rx.text("Username", weight="bold", margin_top="1vh"), rx.input(placeholder="Ingresa tu nombre de usuario"),
-                rx.text("Email", weight="bold"), rx.input(placeholder="correo@example.com"),
-                rx.text("Password", weight="bold"), rx.input(placeholder="Ingresa tu contraseña"),
-                rx.link("¿No tienes una cuenta? Registrate aquí", href="/sign_up", size="2", color_scheme='purple'),
-                spacing="4",
-                direction="column",
-                margin="auto 2vh 2vh"
+            rx.heading("Ingresa tus credenciales", as_="h4"),
+            direction="column",
+            align="center",
+            spacing="2",
+        ),
+
+def form_fields(auth:AuthState):
+    return rx.flex(
+        rx.text("Nombre de usuario", weight='bold'),
+        rx.input(placeholder="ingresa tu nombre de usuario", on_blur=AuthState.set_username),
+        rx.spacer(margin_y="1rem"),
+        rx.text('Contraseña', weight='bold'),
+        rx.input(placeholder="ingresa tu contraseña", type='password', on_blur=AuthState.set_password),
+        direction='column',
+        margin_top="1.3rem"
+
+    )
+
+def form_link():
+    return rx.link(
+        rx.text('¿Aún no tienes una cuenta? Haz click aquí', margin_y='0.8em'),
+        href='/sign_up',
+    )
+
+def login_form_button(auth:AuthState):
+    return rx.button(
+        "Ingresar", on_click=auth.login
+    )
+
+
+def login_form_dialog(auth:AuthState):
+    return rx.dialog.content(
+        form_header(),
+        form_fields(auth),
+        form_link(),
+        rx.flex(
+            rx.dialog.close(
+                login_form_button(auth),
             ),
             rx.dialog.close(
-                rx.flex(
-                    rx.button("Cancelar"),
-                    rx.button("Ingresar"),
-                    justify="center",
-                    spacing="3"
-                ),
+                rx.button("Cancelar")
             ),
-            width="30vw",
-            padding="2em",
-            max_width="28em",
+            spacing="4",
+            justify='center'
         ),
+        padding="2em",
+        max_width="28em",
     )

@@ -1,4 +1,5 @@
 import json
+from typing import Any
 import requests
 
 
@@ -19,15 +20,15 @@ class Routes:
 class API:
     def __init__(self, server_url: str, headers: dict):
         self.url = server_url
-        self.__headers__ = headers
+        self.__headers = headers
 
-    def __as_json(self, response: requests.Response):
+    def __as_json(self, response: requests.Response) -> dict:
         return json.loads(response.text)
 
     def request(
         self, method: str, data: dict | None = None, route: str = "", token: str = ""
     ):
-        auth = self.__headers__
+        auth = self.__headers
         auth["Authorization"] = token
         response = requests.request(
             method=method, url=self.url + route, data=data, headers=auth
