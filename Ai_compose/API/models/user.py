@@ -12,9 +12,24 @@ class User(BaseModel):
         data = json.dumps({"username": username, "password": password})
         return self.api.request(method=Methods.POST, data=data, route=route)
 
-    def register_user(self, username: str, email: str, password: str):
+    def register_user(
+        self,
+        username: str,
+        firstname: str,
+        lastname: str,
+        email:str,
+        password:str
+    ):
         route = self.register
-        data = json.dumps({"username": username, "email": email, "password": password})
+        data = json.dumps(
+            {
+                "username": username,
+                "email": email,
+                "firstname": firstname,
+                "lastname": lastname,
+                "password": password,
+            }
+        )
         return self.api.request(method=Methods.POST, data=data, route=route)
 
     def user_account(self, token: str, id: int):
