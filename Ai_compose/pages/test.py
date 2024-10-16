@@ -2,6 +2,7 @@ import reflex as rx
 from rxconfig import glow_bg_light
 from ..templates.master import template
 from ..state.auth import AuthState
+from ..components.piano.chordmaker.chord_maker import chord_maker
 
 def login_card(auth):
     return rx.vstack(
@@ -25,6 +26,11 @@ def test_page(auth: AuthState):
                 rx.text("Sesión iniciada"),
                 rx.text("Sesión cerrada"),
             )
+        ),
+        rx.divider(),
+        rx.container(
+            rx.heading("Chord Maker", size='6', margin_y='1.5rem'),
+            chord_maker(),
         ),
         ##########
         direction="column",
