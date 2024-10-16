@@ -22,7 +22,7 @@ def feature_card(text: str, **kwargs):
 def features_cards():
     return rx.flex(
         feature_card("Experimenta con Acordes"),
-        feature_card("Descubre Escalas y Tonalidad "),
+        feature_card("Descubre Escalas y Tonalidades"),
         feature_card("Chatbot con IA incluido"),
         feature_card("Documentación de teoría músical gratis"),
         spacing="4",
