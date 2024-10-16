@@ -9,6 +9,7 @@ routes = Routes(
     tones="/tones/",
     scales="/scales/",
     chords="/chords/",
+    generate_chord="make/chord/note/{}}/symbol/{}",
     notes="/notes/",
     login="/login/",
     register="/register/",
@@ -32,4 +33,4 @@ chat = Chat(api=api, chat=routes.chat, new_chat=routes.new_chat)
 tones = Tones(api=api, tones=routes.tones)
 notes = Notes(api=api, notes=routes.notes)
 scales = Scales(api=api, scales=routes.scales)
-chords = Chords(api=api, chords=routes.chords)
+chords = Chords(api=api, chords=routes.chords, generate_chord=routes.generate_chord)
