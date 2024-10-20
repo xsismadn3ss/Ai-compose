@@ -35,7 +35,6 @@ class Chords(BaseModel):
 
     def get(self, id: int | None = None):
         route = self.chords + str(id) if id else self.chords
-        print(route)
         return self.api.request(method=Methods.GET, route=route)
 
     def generate(self, note, symbol):
