@@ -35,3 +35,6 @@ piano_style = {
 glow_bg_light = {
     'box_shadow': '0px 0px 4.5rem 1rem #9563ee',
 }
+
+light_border = "1px solid #d3d3d3"
+dark_border = "1px solid #414141"
