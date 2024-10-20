@@ -1,9 +1,10 @@
 import reflex as rx
 from ....API.api_config import chords
 
+
 class ChordMakerState(rx.State):
     note: str = "_"
-    symbol: str = "#"
+    symbol: str = "_"
 
     def set_note(self, note: str):
         self.note = note.upper()
@@ -15,14 +16,21 @@ class ChordMakerState(rx.State):
         self.symbol = symbol
 
     def clear(self):
-        self.note = "_"
-        self.symbol = "#"
+        self.reset()
 
     def generate_chord(self):
-        # TODO: agregar opción peticion y devolver un dialogo en vez de un toast
-        response = chords.generate(note='C', symbol='maj7')
+        if self.note == "_" or self.symbol == "_":
+            return rx.toast.error(
+                "Asegurate de seleccionar una nota y una proporción antes de generar un acorde",
+                position="top-center",
+            )
+
+        response = chords.generate(note=self.note, symbol=self.symbol)
+
         return rx.toast.info(
-            " Generando acorde {} {}, Acorde: {}".format(self.note, self.symbol, response),
+            " Generando acorde {} {}, Acorde: {}".format(
+                self.note, self.symbol, response
+            ),
             position="top-center",
         )
 
