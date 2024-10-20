@@ -1,10 +1,9 @@
 import reflex as rx
-from ....API.api_config import chords
 from .state import ChordMakerState
-
 from ..keys import key
-from .screen import screen
+from .action_bar import action_bar
 from ..piano_container import piano
+
 
 def black_keys() -> rx.Component:
     return rx.flex(
@@ -28,9 +27,10 @@ def white_keys() -> rx.Component:
         key("b", on_click=ChordMakerState.set_note("b")),
     )
 
+
 def chord_maker():
     return rx.flex(
-        screen(),
+        action_bar(),
         piano(
             black_keys(),
             white_keys(),
