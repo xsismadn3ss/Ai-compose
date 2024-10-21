@@ -5,6 +5,7 @@ from .dropdown import dropdown
 from .icon_button import icon_button
 from .send_button import send_button
 from .prop_screen import prop_screen
+from .result_dialog import result_dialog
 
 def action_bar():
 
@@ -13,7 +14,7 @@ def action_bar():
             prop_screen(),
             dropdown(),
             icon_button(icon_name="delete", on_click=ChordMakerState.clear()),
-            send_button(),
+            result_dialog(),
         ),
         border=rx.color_mode_cond(light=light_border, dark=dark_border),
         text_align="center",
