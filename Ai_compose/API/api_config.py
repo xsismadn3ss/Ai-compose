@@ -20,7 +20,11 @@ routes = Routes(
 
 api = API(
     server_url=getenv("SERVER_URL"),
-    headers={"Accepts": "*/*", "Authorization": "", "Content-Type": "application/json"},
+    headers={
+        "Accept": "*/*",
+        "Authorization": "",
+        "Content-Type": "application/json",
+    },
 )
 
 user = User(
