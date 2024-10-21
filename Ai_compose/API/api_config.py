@@ -9,6 +9,7 @@ routes = Routes(
     tones="/tones/",
     scales="/scales/",
     chords="/chords/",
+    generate_chord="/make/chord/note/{}/symbol/{}",
     notes="/notes/",
     login="/login/",
     register="/register/",
@@ -19,17 +20,19 @@ routes = Routes(
 
 api = API(
     server_url=getenv("SERVER_URL"),
-    headers={"Accepts": "*/*", "Authorization": "", "Content-Type": "application/json"},
+    headers={
+        "Accept": "*/*",
+        "Authorization": "",
+        "Content-Type": "application/json",
+    },
 )
 
-# completado ✅
 user = User(
     api=api, login=routes.login, register=routes.register, account=routes.register
 )
 chat = Chat(api=api, chat=routes.chat, new_chat=routes.new_chat)
 
-# esperando implementación de backtracking en el backend...
 tones = Tones(api=api, tones=routes.tones)
 notes = Notes(api=api, notes=routes.notes)
 scales = Scales(api=api, scales=routes.scales)
-chords = Chords(api=api, chords=routes.chords)
+chords = Chords(api=api, chords=routes.chords, generate_chord=routes.generate_chord)

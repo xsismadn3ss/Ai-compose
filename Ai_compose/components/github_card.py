@@ -18,7 +18,7 @@ def github_card(username: str, description: str = "") -> rx.Component:
         )
 
     else:
-        url = f"https:/github.com/{username}"
+        url = f"https://github.com/{username}"
         name = ''
         avatar = rx.avatar(
             fallback=f"{username[0:2]}".upper(),

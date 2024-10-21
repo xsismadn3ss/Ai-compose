@@ -15,8 +15,6 @@ class State(rx.State):
     @rx.var
     def logged_in(self):
         if self.authenticated:
-            print("Sesión iniciada")
             return True
 
-        print("No se ha iniciado sesión")
         return False

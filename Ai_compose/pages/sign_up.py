@@ -8,7 +8,7 @@ from ..components.sign_up import signup_form
 @template
 def signup(auth)-> rx.Component:
     return rx.center(
-        signup_form(),
+        signup_form(auth),
         direction="column",
         justify="center"
     )

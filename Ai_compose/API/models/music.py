@@ -1,5 +1,6 @@
 from ..api_client import *
 from .base_model import BaseModel
+from urllib import parse
 
 
 class Notes(BaseModel):
@@ -33,6 +34,10 @@ class Chords(BaseModel):
     def __init__(self, api, **routes):
         super().__init__(api, **routes)
 
-    def get(self, id: int | None):
+    def get(self, id: int | None = None):
         route = self.chords + str(id) if id else self.chords
+        return self.api.request(method=Methods.GET, route=route)
+
+    def generate(self, note:str, symbol:str):
+        route: str = self.generate_chord.format(parse.quote(note), symbol)
         return self.api.request(method=Methods.GET, route=route)
