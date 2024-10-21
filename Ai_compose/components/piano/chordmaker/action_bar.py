@@ -3,7 +3,6 @@ from rxconfig import light_border, dark_border
 from .state import ChordMakerState
 from .dropdown import dropdown
 from .icon_button import icon_button
-from .send_button import send_button
 from .prop_screen import prop_screen
 from .result_dialog import result_dialog
 
