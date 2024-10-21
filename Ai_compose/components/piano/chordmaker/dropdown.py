@@ -21,7 +21,7 @@ def drop_button(icon_name: str, tooltip: str = ""):
                 color_scheme="gray",
                 variant="ghost",
                 cursor="pointer",
-                margin_x="0.5rem",
+                margin_x="0.2rem",
             ),
             content=tooltip,
         ),
