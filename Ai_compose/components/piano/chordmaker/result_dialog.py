@@ -1,7 +1,5 @@
 import reflex as rx
 from .state import ChordMakerState
-from ..keys import key
-from rxconfig import black_keys_style, white_keys_style
 
 
 def render_note(note: rx.Var):
