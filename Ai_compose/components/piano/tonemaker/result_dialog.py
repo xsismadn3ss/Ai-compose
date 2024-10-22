@@ -32,7 +32,7 @@ def result_dialog():
                 error_content(),
                 rx.cond(
                     ToneMakerState.is_loaded & ~ToneMakerState.is_error,
-                    result_content(),
+                    result_content(ToneMakerState.data),
                     rx.spinner()
                 )
             ),
