@@ -14,9 +14,6 @@ class ChordMakerState(rx.State):
     def set_note(self, note: str):
         self.note = note.upper()
 
-    def delete_note(self):
-        self.note = "Selecciona una nota"
-
     def set_symbol(self, symbol: str):
         self.symbol = symbol
 
