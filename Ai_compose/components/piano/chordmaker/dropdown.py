@@ -44,10 +44,6 @@ def dropdown():
             drop_button("chevron-down", tooltip="Seleccionar tipo de acordes")
         ),
         rx.menu.content(
-            rx.menu.item(
-                "Obtener acordes",
-            ),
-            rx.menu.separator(),
             rx.foreach(options, render_item),
         ),
     )

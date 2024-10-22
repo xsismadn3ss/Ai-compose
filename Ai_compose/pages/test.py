@@ -3,6 +3,7 @@ from rxconfig import glow_bg_light
 from ..templates.master import template
 from ..state.auth import AuthState
 from ..components.piano.chordmaker.chord_maker import chord_maker
+from ..components.piano.tonemaker.tone_maker import tone_maker
 
 def login_card(auth):
     return rx.vstack(
@@ -31,6 +32,10 @@ def test_page(auth: AuthState):
         rx.container(
             rx.heading("Chord Maker", size='6', margin_y='1.5rem'),
             chord_maker(),
+        ),
+        rx.container(
+            rx.heading("Tone Maker", size='6', margin_y='1.5rem'),
+            tone_maker(),
         ),
         ##########
         direction="column",

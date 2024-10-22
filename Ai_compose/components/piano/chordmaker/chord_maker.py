@@ -1,7 +1,7 @@
 import reflex as rx
 from .state import ChordMakerState
 from ..keys import key
-from .action_bar import action_bar
+from .action_bar import bar
 from ..piano_container import piano
 
 
@@ -9,7 +9,12 @@ def black_keys() -> rx.Component:
     return rx.flex(
         key("c#", True, ChordMakerState.set_note("c#")),
         key("d#", True, ChordMakerState.set_note("d#")),
-        rx.spacer(margin_x="0.4em"),
+        rx.tablet_and_desktop(
+            rx.spacer(margin_x="0.4em")
+        ),
+        rx.mobile_only(
+            rx.spacer(margin_x="0.2em")
+        ),
         key("f#", True, ChordMakerState.set_note("f#")),
         key("g#", True, ChordMakerState.set_note("g#")),
         key("a#", True, ChordMakerState.set_note("a#")),
@@ -30,7 +35,7 @@ def white_keys() -> rx.Component:
 
 def chord_maker():
     return rx.flex(
-        action_bar(),
+        bar(),
         piano(
             black_keys(),
             white_keys(),
