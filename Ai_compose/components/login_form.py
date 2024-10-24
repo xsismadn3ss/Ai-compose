@@ -1,6 +1,5 @@
 import reflex as rx
-from Ai_compose.API.api_config import user
-from Ai_compose.state.auth import AuthState
+from Ai_compose.state.auth_state import AuthState
 
 
 def form_header():
@@ -18,7 +17,7 @@ def form_header():
             spacing="2",
         ),
 
-def form_fields(auth:AuthState):
+def form_fields():
     return rx.flex(
         rx.text("Nombre de usuario", weight='bold'),
         rx.input(placeholder="ingresa tu nombre de usuario", on_blur=AuthState.set_username),
@@ -36,20 +35,20 @@ def form_link():
         href='/sign_up',
     )
 
-def login_form_button(auth:AuthState):
+def login_form_button():
     return rx.button(
-        "Ingresar", on_click=auth.login
+        "Ingresar", on_click=AuthState.login_from_dialog()
     )
 
 
-def login_form_dialog(auth:AuthState):
+def login_form_dialog():
     return rx.dialog.content(
         form_header(),
-        form_fields(auth),
+        form_fields(),
         form_link(),
         rx.flex(
             rx.dialog.close(
-                login_form_button(auth),
+                login_form_button(),
             ),
             rx.dialog.close(
                 rx.button("Cancelar")
