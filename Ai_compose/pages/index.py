@@ -1,15 +1,15 @@
 import reflex as rx
 
-from Ai_compose.state.auth import AuthState
 from ..templates.master import template
 from ..components.cards import features_cards
-from ..components.navbar.navbar_buttons import signup_button
+from ..components.buttons import signup_button, start_button
 from ..components.github_card import github_card
+from ..state.auth_state import AuthState
 
 
 @rx.page(route="/", title="Home")
 @template
-def index(auth:AuthState):
+def index():
     return rx.center(
         rx.container(
             rx.heading(
@@ -27,7 +27,11 @@ def index(auth:AuthState):
             ),
             margin_top="4rem"
         ),
-        signup_button(auth),
+        rx.cond(
+            AuthState.is_logged_in,
+            start_button(),
+            signup_button()
+        ),
         rx.spacer(margin_y='4rem'),
         rx.divider(),
         rx.text(

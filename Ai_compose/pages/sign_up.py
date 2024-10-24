@@ -1,14 +1,19 @@
 import reflex as rx
 
 from ..templates.master import template
-from ..components.navbar.navbar import navbar
-from ..components.sign_up import signup_form
+from ..components.forms.signupform import signup_form
+from ..components.cards import register_succesfully
+from ..state.auth_state import AuthState
 
-@rx.page(route="/sign_up", title="Sign Up Form")
+@rx.page(route="/sign_up", title="Registrarse")
 @template
-def signup(auth)-> rx.Component:
+def signup()-> rx.Component:
     return rx.center(
-        signup_form(auth),
+        rx.cond(
+            AuthState.is_logged_in,
+            register_succesfully(),
+            signup_form()
+        ),
         direction="column",
         justify="center"
     )

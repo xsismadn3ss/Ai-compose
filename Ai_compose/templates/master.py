@@ -3,18 +3,14 @@ import reflex as rx
 
 from ..components.footer import footer
 from ..components.navbar.navbar import navbar
-from ..state.auth import AuthState
 
 
-def template(page: Callable[[], rx.Component], is_required:bool=False) -> rx.Component:
-    if is_required:
-        return  rx.redirect('/')
-
+def template(page: Callable[[], rx.Component]) -> rx.Component:
 
 
     return rx.flex(
         rx.flex(
-            navbar(AuthState),
+            navbar(),
             padding="0",
             width="100%",
             direction="column",
@@ -27,7 +23,7 @@ def template(page: Callable[[], rx.Component], is_required:bool=False) -> rx.Com
             z_index='1000'
         ),
         rx.flex(
-            page(AuthState),
+            page(),
             style={"margin_top": "5rem", 'padding': '0.5rem'},
             direction="column",
             width='100%'
