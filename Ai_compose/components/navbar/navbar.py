@@ -3,10 +3,10 @@ from .logo import navbar_logo
 from .hamburger import hamburger
 from .theme_switcher import theme_switch
 from .navbar_buttons import navbar_link, login_button, logout_button
-from Ai_compose.state.auth import AuthState
+from Ai_compose.state.auth_state import AuthState
 
 
-def navbar(auth:AuthState) -> rx.Component:
+def navbar() -> rx.Component:
     return rx.box(
         rx.desktop_only(
             rx.flex(
@@ -26,9 +26,9 @@ def navbar(auth:AuthState) -> rx.Component:
                     ),
                     rx.tooltip(theme_switch(), content="Cambiar tema"),
                     rx.cond(
-                        auth.logged_in,
+                        AuthState.is_logged_in,
                         logout_button(),
-                        login_button(auth),
+                        login_button(),
                     ),
                     align="center",
                     margin_x="1rem",
@@ -43,7 +43,7 @@ def navbar(auth:AuthState) -> rx.Component:
         rx.mobile_and_tablet(
             rx.flex(
                 navbar_logo(),
-                hamburger(auth),
+                hamburger(),
                 justify="between",
                 direction="row",
                 align="center",
