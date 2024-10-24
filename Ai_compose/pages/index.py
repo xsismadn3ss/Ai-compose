@@ -25,20 +25,26 @@ def index():
                 size="5",
                 margin_bottom="1rem",
             ),
-            margin_top="4rem"
+            margin_top="4rem",
         ),
-        rx.cond(
-            AuthState.is_logged_in,
-            start_button(),
-            signup_button()
-        ),
-        rx.spacer(margin_y='4rem'),
+        rx.cond(AuthState.is_logged_in, start_button(), signup_button()),
+        rx.spacer(margin_y="4rem"),
         rx.divider(),
-        rx.text(
-            "Funcionalidades y documentación",
-            weight="bold",
-            size="6",
-            margin_top="3rem",
+        rx.tablet_and_desktop(
+            rx.text(
+                "Funcionalidades y documentación",
+                weight="bold",
+                size="6",
+                margin_top="3rem",
+            ),
+        ),
+        rx.mobile_only(
+            rx.text(
+                "Funcionalizades y documentación",
+                size='4',
+                weight='bold',
+                margin_top='3rem'
+            )
         ),
         features_cards(),
         rx.divider(),
@@ -46,10 +52,10 @@ def index():
             "Créditos", weight="bold", size="6", margin_bottom="5vh", margin_top="5vh"
         ),
         rx.flex(
-            github_card(username="Haluuuu", description='Backend developer'),
-            github_card(username="xsismadn3ss", description='Fullstack developer'),
-            github_card("Alexandra-Rivera", description='Frontend developer'),
-            github_card("ingrid", description='Backend developer'),
+            github_card(username="Haluuuu", description="Backend developer"),
+            github_card(username="xsismadn3ss", description="Fullstack developer"),
+            github_card("Alexandra-Rivera", description="Frontend developer"),
+            github_card("ingrid", description="Backend developer"),
             direction="row",
             justify="center",
             align="center",
