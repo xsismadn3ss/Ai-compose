@@ -1,6 +1,6 @@
 import reflex as rx
 
-from ..state.auth import AuthState
+from ..state.auth_state import AuthState
 from ..templates.master import template
 from ..components.piano_component import piano_roll
 from ..components.cards import not_logged_ind_card as message_card
@@ -10,9 +10,9 @@ from ..components.piano.tonemaker.tone_maker import tone_maker
 
 @rx.page(route="/piano_roll", title="Piano roll test")
 @template
-def painoRoll(auth: AuthState):
+def painoRoll():
     return rx.cond(
-        auth.logged_in,
+        AuthState.is_logged_in,
         rx.center(
             rx.container(
                 rx.heading("Acordes y Tonalidades", as_="h3", margin_top="10vh"),
@@ -20,7 +20,7 @@ def painoRoll(auth: AuthState):
                     rx.tabs.root(
                         rx.tabs.list(
                             rx.tabs.trigger("Generar acordes", value="tab1"),
-                            rx.tabs.trigger("Generar escalas", value="tab2"),
+                            rx.tabs.trigger("Generar tonalidades", value="tab2"),
                         ),
                         rx.tabs.content(
                             chord_maker(),
