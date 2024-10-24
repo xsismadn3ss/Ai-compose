@@ -12,17 +12,6 @@ def navbar_link(text: str, url: str):
     return rx.link(rx.text(text, size="3", weight="bold"), href=url)
 
 
-def signup_button():
-    return rx.dialog.root(
-        rx.dialog.trigger(
-            rx.button(
-                "Comienza a aprender", size="4", border_radius="0.6em", cursor="pointer"
-            )
-        ),
-        login_form_dialog(),
-    )
-
-
 def logout_button():
     return rx.button(
         "Cerrar sesión", size="2", border_radius="0.6rem", on_click=AuthState.logout()
