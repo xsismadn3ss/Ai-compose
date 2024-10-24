@@ -1,6 +1,6 @@
 import reflex as rx
 from Ai_compose.components.forms.loginform import login_form
-from Ai_compose.templates.layout import template
+from Ai_compose.templates.master import template
 
 
 @rx.page(route='/test2', title='Test using cookies')
