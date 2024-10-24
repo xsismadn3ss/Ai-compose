@@ -1,14 +1,13 @@
-reflex
 aiohttp_socks==0.9.0
 beautifulsoup4==4.12.3
 browser-cookie3==0.19.1
 CairoSVG==2.7.1
 duckduckgo_search==6.3.2
 Flask==3.0.3
-g4f==0.3.3.1
+g4f==0.3.3.2
 loguru==0.7.2
 nest-asyncio==1.6.0
 plyer==2.1.0
 PyExecJS==1.5.1
 python-dotenv==1.0.1
-pywebview==5.3.1
+pywebview==5.3.2
