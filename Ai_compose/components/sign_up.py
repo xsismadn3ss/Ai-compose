@@ -74,21 +74,18 @@ def form_fields():
     )
 
 
-def register_button(auth: AuthState):
-    return (rx.button("Registrarse", size="3", width="100%", on_click=auth.register))
+def register_button():
+    return (rx.button("Registrarse", size="3", width="100%"))
 
 
 def signup_form(auth:AuthState) -> rx.Component:
-
-    
-    
 
     return rx.container(
         rx.desktop_only(
             rx.card(
                 form_header(),
                 form_fields(),
-                register_button(auth),  
+                register_button(),  
                 padding="3em",
                 width="40rem",
                 margin_top="0.3em",
@@ -98,7 +95,7 @@ def signup_form(auth:AuthState) -> rx.Component:
             rx.card(
                 form_header(),
                 form_fields(),
-                register_button(auth),    
+                register_button(),    
                 padding="3em",
                 max_width="40rem",
                 margin_top="1vh",
