@@ -22,13 +22,13 @@ def doc_menu(blur: str = ""):
             rx.menu.sub(
                 rx.menu.sub_trigger("Acordes"),
                 rx.menu.sub_content(
-                    menu_item("¿Qué es un acorde?"),
-                    menu_item("Acordes básicos"),
+                    menu_item("¿Qué es un acorde?", '/docs/acordes'),
+                    menu_item("Acordes básicos", '/docs/acordes/basicos'),
                     menu_item("Acordes de quinta"),
                     menu_item("Acordes de séptima"),
                     menu_item("Acordes de sexta"),
                     menu_item("Acordes con suspendidos"),
-                    menu_item("Acordes con adiciones"),
+                    menu_item("Acordes con adiciones", '/docs/acordes/adiciones'),
                 ),
             ),
             menu_item("Escalas"),
