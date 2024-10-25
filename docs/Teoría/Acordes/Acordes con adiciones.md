@@ -3,7 +3,7 @@
 ## [Novena]()
 Es un acorde de jazz muy versátil, se caracteriza por tener un sonido rico y complejo. Se compone por una tónica, tercera mayor, quinta, séptima menor y novena mayor.
 
-Este tipo de acordes se puede usar como un acorde de paso para crear resoluciones y tensión en una [[Progresión de acordes]]
+Este tipo de acordes se puede usar como un acorde de paso para crear resoluciones y tensión en una [Progresión de acordes]()
 
 ### Construcción 
 * tónica + 4 semitonos + 3 semitonos + 3 semitonos + 4 semitonos
