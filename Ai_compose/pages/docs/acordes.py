@@ -5,10 +5,10 @@ from ...components.docs_menu.menu import doc_menu
 from .views.container import container
 
 
-BASE_URL = "/docs/acordes"
+url = "/docs/acordes"
 
 
-@rx.page(route=BASE_URL, title="¿Qué es un acorde?")
+@rx.page(route=url, title="¿Qué es un acorde?")
 @template
 def acordes():
     return rx.container(
@@ -22,7 +22,7 @@ def acordes():
     )
 
 
-@rx.page(route=BASE_URL + "/adiciones", title="Acordes con adiciones")
+@rx.page(route=url+"/adiciones", title="Acordes con adiciones")
 @template
 def acordes_adiciones():
     return container(
@@ -34,10 +34,13 @@ def acordes_adiciones():
     )
 
 
-@rx.page(route=BASE_URL + "/basicos", title="Acordes básicos")
+@rx.page(route=url+"/basicos", title="Acordes básicos")
 @template
 def acordes_basicos():
     return container(
-        rx.flex(doc_menu("Acordes básicos"), justify="end"),
-        markdown("docs/Teoría/Acordes/Acordes normales.md"),
+        rx.card(
+            rx.flex(doc_menu("Acordes básicos"), justify="end"),
+            markdown("docs/Teoría/Acordes/Acordes normales.md"),
+            size="3",
+        ),
     )
