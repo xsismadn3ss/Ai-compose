@@ -1,5 +1,6 @@
-#musica #acordes 
-Un acorde es un conjunto de dos o más [[Notas]] que al tocarse a la vez generan [[Armonía]], muchas veces tienen [[Tonalidad]] y pueden ser mayores o menores.
+# ¿Qué es un acordes?
+
+Un acorde es un conjunto de dos o más [Notas]() que al tocarse a la vez generan [Armonía](), muchas veces tienen [Tonalidad]() y pueden ser mayores o menores.
 
 ## Elementos que componen un acorde:
 * [Notas]()
@@ -10,9 +11,9 @@ Un acorde es un conjunto de dos o más [[Notas]] que al tocarse a la vez generan
 * **Tetradas**: acordes de cuatro notas.
 * **Quintas**: acordes de cinco notas.
 ## Configuraciones de acordes:
-* [Acordes básicos]()
+* [Acordes básicos](/docs/acordes/basicos)
 * [Acordes de séptima]()
-* [Acordes con adiciones]()
+* [Acordes con adiciones](/docs/acordes/adiciones)
 * [Acordes alterados]()
 * [Acordes suspendidos]()
 * [Acordes de sexta]()
