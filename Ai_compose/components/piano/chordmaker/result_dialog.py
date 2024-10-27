@@ -1,5 +1,6 @@
 import reflex as rx
 from .state import ChordMakerState
+from ..loading_content import loading
 
 
 def render_note(note: rx.Var):
@@ -61,7 +62,7 @@ def result_dialog():
                 rx.cond(
                     ChordMakerState.is_loaded & ~ChordMakerState.is_error,
                     result_content(ChordMakerState.data),
-                    rx.spinner(),
+                    loading()
                 ),
             ),
             rx.alert_dialog.cancel(
