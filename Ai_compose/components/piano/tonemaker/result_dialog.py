@@ -1,5 +1,6 @@
 import reflex as rx
 from .state import ToneMakerState
+from ..loading_content import loading
 
 def result_content(data:str|None=None):
     return rx.vstack(
@@ -33,7 +34,7 @@ def result_dialog():
                 rx.cond(
                     ToneMakerState.is_loaded & ~ToneMakerState.is_error,
                     result_content(ToneMakerState.data),
-                    rx.spinner()
+                    loading(),
                 )
             ),
             rx.alert_dialog.cancel(
