@@ -3,10 +3,10 @@ import reflex as rx
 from ..state.auth_state import AuthState
 from ..templates.master import template
 from ..components.piano_component import piano_roll
-from ..components.cards import not_logged_ind_card as message_card
+from ..components.cards import not_logged_in_card as message_card
 from ..components.piano.chordmaker.chord_maker import chord_maker
 from ..components.piano.tonemaker.tone_maker import tone_maker
-
+from ..components.piano.scalemaker.scale_maker import scale_maker
 
 @rx.page(route="/piano_roll", title="Piano roll test")
 @template
@@ -36,7 +36,7 @@ def painoRoll():
                 ),
                 rx.heading("Generador de Escalas", as_="h3", margin_bottom="5vh"),
                 rx.center(
-                    piano_roll(),
+                    scale_maker(),
                     margin_bottom="10vh",
                 ),
             ),
