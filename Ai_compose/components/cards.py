@@ -62,7 +62,7 @@ def features_cards():
     )
 
 
-def not_logged_ind_card():
+def not_logged_in_card():
     return rx.card(
         rx.flex(style=glow_bg_light),
         rx.heading("Necesitas iniciar sesión", size="5", margin_bottom="0.8rem"),
