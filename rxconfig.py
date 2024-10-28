@@ -4,7 +4,7 @@ config = rx.Config(
     app_name="Ai_compose",
 )
 
-#estilos para teclas negras
+# estilos para teclas negras
 black_keys_style = {
     "bg": "#303030",
     "border_radius": "0.5em",
@@ -12,12 +12,13 @@ black_keys_style = {
     "margin_bottom": "0.4em",
 }
 
-#estilos para teclas blancas
+# estilos para teclas blancas
 white_keys_style = {
-    "bg": "#d1d1d1",
+    "bg": "#f4eaff",
     "border_radius": "0.5em",
     "margin_x": "0.2em",
     "color": "#202020",
+    "height": "3rem"
 }
 
 piano_style = {
@@ -31,10 +32,47 @@ piano_style = {
     "box_shadow": "0px 0px 50px #924337",
 }
 
-#efecto neón 
+# efecto neón
 glow_bg_light = {
     'box_shadow': '0px 0px 4.5rem 1rem #9563ee',
 }
 
 light_border = "1px solid #d3d3d3"
 dark_border = "1px solid #414141"
+
+# fondo transparente
+bg_transparent_light = {
+    "background": "transparent",
+    "backdrop_filter": "blur(15px)",
+    "background_image": """linear-gradient(
+        180deg, 
+        rgba(207, 191, 255, 0.8), 
+        rgba(207, 191, 255, 0.8), 
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.8)
+    )
+    """,
+}
+
+bg_transparent_light2 = {
+    "background": "transparent",
+    "backdrop_filter": "blur(15px)",
+    "background_image": """linear-gradient(
+        180deg, 
+        rgba(207, 191, 255, 0.8), 
+        rgba(255, 255, 255, 0.999)
+    )
+    """,
+}
+
+bg_transparent_dark = {
+    "background": "transparent",
+    "backdrop_filter": "blur(20px)",
+    # "background_image": """linear-gradient(
+    #     180deg,
+    #     rgb(255, 255, 255, 0.2),
+    #     rgba(68, 52, 116, 0.4),
+    #     rgba(255, 255, 255, 0.2)
+    # )
+    # """,
+}

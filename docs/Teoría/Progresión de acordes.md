@@ -1,0 +1,2 @@
+#acordes #composición 
+[[Tonalidad]]

@@ -14,6 +14,7 @@ def navbar() -> rx.Component:
                 rx.flex(
                     navbar_link("Inicio", "/"),
                     navbar_link("Piano Roll", "/piano_roll"),
+                    navbar_link("Documentación", "/docs"),
                     rx.link(
                         rx.button(
                             rx.text("Chat", color_scheme="purple", weight="bold"),

@@ -7,7 +7,7 @@ from ..components.github_card import github_card
 from ..state.auth_state import AuthState
 
 
-@rx.page(route="/", title="Home")
+@rx.page(route="/", title="Inicio", description="Ai Compose aprende tería musical con IA")
 @template
 def index():
     return rx.center(
@@ -40,7 +40,7 @@ def index():
         ),
         rx.mobile_only(
             rx.text(
-                "Funcionalizades y documentación",
+                "Funcionalidades y documentación",
                 size='4',
                 weight='bold',
                 margin_top='3rem'
@@ -49,7 +49,7 @@ def index():
         features_cards(),
         rx.divider(),
         rx.text(
-            "Créditos", weight="bold", size="6", margin_bottom="5vh", margin_top="5vh"
+            "Creditos", weight="bold", size="6", margin_bottom="5vh", margin_top="5vh"
         ),
         rx.flex(
             github_card(username="Haluuuu", description="Backend developer"),

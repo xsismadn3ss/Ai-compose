@@ -1,23 +1,17 @@
 import reflex as rx
 from .state import ChordMakerState
+from ..loading_content import loading
+from ...dark_light_dialog_content import dark_light_alertdialog as dialog_content
 
 
 def render_note(note: rx.Var):
     return rx.button(
         note,
-        bg=rx.cond(
-            note.contains("#"),
-            '#303030',
-            '#d1d1d1'
-        ),
-        color=rx.cond(
-            note.contains('#'),
-            '#d1d1d1',
-            '#303030'
-        ),
-        border_radius='0.5rem',
-        margin_x = '0.2rem',
-        padding_y= '0.6rem'
+        bg=rx.cond(note.contains("#"), "#303030", "#faf5ff"),
+        color=rx.cond(note.contains("#"), "#faf5ff", "#303030"),
+        border_radius="0.5rem",
+        margin_x="0.2rem",
+        padding_y="0.6rem",
     )
 
 
@@ -25,11 +19,11 @@ def result_content(data: dict):
     return rx.vstack(
         rx.heading(data["name"], color_scheme="purple"),
         rx.flex(
-            rx.text("Nomeclatura: ", weight='bold'),
-            rx.text("{} {}".format(data["root"], data["symbol"]), margin_left='0.5rem'),
+            rx.text("Nomeclatura: ", weight="bold"),
+            rx.text("{} {}".format(data["root"], data["symbol"]), margin_left="0.5rem"),
         ),
         rx.divider(),
-        rx.heading("Notas", size='5'),
+        rx.heading("Notas", size="5"),
         rx.flex(rx.foreach(ChordMakerState.notes, render_note)),
     )
 
@@ -54,14 +48,14 @@ def result_dialog():
                 on_click=ChordMakerState.generate_chord(),
             )
         ),
-        rx.alert_dialog.content(
+        dialog_content(
             rx.cond(
                 ChordMakerState.is_error & ~ChordMakerState.is_loaded,
                 error_content(),
                 rx.cond(
                     ChordMakerState.is_loaded & ~ChordMakerState.is_error,
                     result_content(ChordMakerState.data),
-                    rx.spinner(),
+                    loading(),
                 ),
             ),
             rx.alert_dialog.cancel(
@@ -76,6 +70,5 @@ def result_dialog():
                     justify="end",
                 ),
             ),
-            max_width='35rem'
         ),
     )

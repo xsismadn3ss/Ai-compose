@@ -1,13 +1,12 @@
 import reflex as rx
-from .state import ToneMakerState
+from .state import ScaleMakerState
 from ..loading_content import loading
 from ...dark_light_dialog_content import dark_light_alertdialog as dialog_content
 
+
 def result_content(data: str | None = None):
     return rx.vstack(
-        rx.heading(
-            "Tonalidad de {} {}".format(ToneMakerState.note, ToneMakerState.tone)
-        ),
+        rx.heading("Escalas para la nota {}".format(ScaleMakerState.note)),
         rx.markdown(data),
     )
 
@@ -15,7 +14,7 @@ def result_content(data: str | None = None):
 def error_content():
     return rx.vstack(
         rx.heading("Error", color_scheme="red"),
-        rx.text("Asegurate de seleccionar una nota y un tono para empezar"),
+        rx.text("Asegurate de seleccionar una nota para generar el resultado"),
     )
 
 
@@ -25,20 +24,20 @@ def result_dialog():
             rx.icon_button(
                 "send-horizontal",
                 color_scheme="gray",
-                variant="ghost",
+                variant="soft",
                 cursor="pointer",
                 margin_x="0.2rem",
                 margin_y="0.2rem",
-                on_click=ToneMakerState.generate_tone(),
+                on_click=ScaleMakerState.generate_scale(),
             )
         ),
         dialog_content(
             rx.cond(
-                ToneMakerState.is_error & ~ToneMakerState.is_loaded,
+                ScaleMakerState.is_error & ~ScaleMakerState.is_loaded,
                 error_content(),
                 rx.cond(
-                    ToneMakerState.is_loaded & ~ToneMakerState.is_error,
-                    result_content(ToneMakerState.data),
+                    ScaleMakerState.is_loaded & ~ScaleMakerState.is_error,
+                    result_content(data=ScaleMakerState.data),
                     loading(),
                 ),
             ),
@@ -47,7 +46,7 @@ def result_dialog():
                     rx.button(
                         "Cerrar",
                         variant="soft",
-                        on_click=ToneMakerState.clear(),
+                        on_click=ScaleMakerState.clear(),
                         margin_top="1rem",
                         color_scheme="gray",
                     ),

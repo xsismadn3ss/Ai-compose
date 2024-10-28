@@ -24,7 +24,7 @@ def template(page: Callable[[], rx.Component]) -> rx.Component:
         ),
         rx.flex(
             page(),
-            style={"margin_top": "5rem", 'padding': '0.5rem'},
+            style={"margin_top": "5rem", 'padding': '0.8rem'},
             direction="column",
             width='100%'
         ),

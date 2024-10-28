@@ -2,40 +2,55 @@ import reflex as rx
 from ..templates.master import template
 from ..components.piano.chordmaker.chord_maker import chord_maker
 from ..components.piano.tonemaker.tone_maker import tone_maker
+from Ai_compose.pages.state import State
+import style
 
-# def login_card(auth):
-#     return rx.vstack(
-#         rx.text("Nombre de usuario"),
-#         rx.input(placeholder="ingresa tu nombre de usuario", name='username', on_blur=auth.set_username),
-#         rx.text("Contraseña"),
-#         rx.input(placeholder="ingresa tu contraseña", name='password', type='password', on_blur=auth.set_password),
-#         rx.button("Enviar", on_click=auth.login),
-#     )
+def qa(question: str, answer: str) -> rx.Component:
+    return rx.box(
+        rx.box(
+            rx.text(question, style=style.question_style),
+            text_align="right",
+        ),
+        rx.box(
+            rx.text(answer, style=style.answer_style),
+            text_align="left",
+        ),
+        margin_y="1em",
+        width="100%",
+    )
 
+
+def chat() -> rx.Component:
+    return rx.box(
+        rx.foreach(
+            State.chat_history,
+            lambda messages: qa(messages[0], messages[1]),
+        )
+    )
+
+
+def action_bar() -> rx.Component:
+    return rx.hstack(
+        rx.input(
+            value=State.question,
+            placeholder="Ask a question",
+            on_change=State.set_question,
+            style=style.input_style,
+        ),
+        rx.button(
+            "Pregunta",
+            on_click=State.answer,
+            style=style.button_style,
+        ),
+    )
 
 @rx.page(route="/test", title="Test")
 @template
-def test_page():
-    return rx.center(
-        # rx.container(
-        #     login_card(auth),
-        #     rx.divider(),
-        #     rx.cond(
-        #         auth.logged_in,
-        #         rx.text("Sesión iniciada"),
-        #         rx.text("Sesión cerrada"),
-        #     )
-        # ),
-        rx.divider(),
-        rx.container(
-            rx.heading("Chord Maker", size='6', margin_y='1.5rem'),
-            chord_maker(),
-        ),
-        rx.container(
-            rx.heading("Tone Maker", size='6', margin_y='1.5rem'),
-            tone_maker(),
-        ),
-        ##########
-        direction="column",
-        justify="center",
+def ComposeAI() -> rx.Component:
+   return rx.center(
+        rx.vstack(
+            chat(),
+            action_bar(),
+            align="center",
+        )
     )
