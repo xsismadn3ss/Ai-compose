@@ -33,3 +33,35 @@ def acordes_basicos():
         "Acordes básicos",
         "docs/Teoría/Acordes/Acordes normales.md"
     )
+    
+@rx.page(route=url+"/septima", title="Acordes de séptima")
+@template
+def acordes_septima():
+    return doc_card(
+        "Acordes de séptima",
+        "docs/Teoría/Acordes/Acordes de séptima.md"
+    )
+    
+@rx.page(route=url+"/sexta", title="Acordes de sexta")
+@template
+def acordes_sexta():
+    return doc_card(
+        "Acordes de sexta",
+        "docs/Teoría/Acordes/Acordes de sexta.md"
+    )
+
+@rx.page(route=url+"/suspendidos", title="Acordes de suspendidos")
+@template
+def acordes_suspendidos():
+    return doc_card(
+        "Acordes de suspendidos",
+        "docs/Teoría/Acordes/Acordes suspendidos.md"
+    )
+    
+@rx.page(route=url+"/potencia", title="Acordes de potencia")
+@template
+def acordes_potencia():
+    return doc_card(
+        "Acordes de potencia",
+        "docs/Teoría/Acordes/Acordes de potencia.md"
+    )   
