@@ -30,6 +30,6 @@ def acordes_adiciones():
 @template
 def acordes_basicos():
     return doc_card(
-        "Acordes básicos"
+        "Acordes básicos",
         "docs/Teoría/Acordes/Acordes normales.md"
     )
