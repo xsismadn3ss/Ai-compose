@@ -1,21 +1,12 @@
 import reflex as rx
 from ...templates.master import template
-from ...components.docs_menu.menu import doc_menu
-from ...components.markdown_render import markdown
+from .views.container import doc_card
 
 
 @rx.page(route="/docs", title="Documentación")
 @template
 def introduction():
-    return rx.container(
-        rx.card(
-            rx.flex(
-                doc_menu(blur="Introducción"),
-                justify="end",
-            ),
-            markdown("./docs/Música.md"),
-            size="3",
-        ),
-        justify="center",
-        direction="column",
+    return doc_card(
+        blur_menu_item="Introducción",
+        markdown_route="./docs/Música.md"
     )
