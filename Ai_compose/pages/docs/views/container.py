@@ -21,11 +21,13 @@ def doc_card(blur_menu_item:str, markdown_route:str):
                 doc_menu(
                     blur=blur_menu_item
                 ),
-                markdown(
-                    markdown_route
-                ),
-                size="2"
-            )
+                justify="end",
+                width='100%'
+            ),
+            markdown(
+                markdown_route
+            ),
+            size="2"
         ),
         justify='center',
         direction='column'
