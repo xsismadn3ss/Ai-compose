@@ -27,7 +27,7 @@ def doc_card(blur_menu_item:str, markdown_route:str):
             markdown(
                 markdown_route
             ),
-            size="2"
+            size="3"
         ),
         justify='center',
         direction='column'
