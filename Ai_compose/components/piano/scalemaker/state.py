@@ -17,13 +17,15 @@ class ScaleMakerState(rx.State):
         self.is_loaded = False
 
     def ask_gpt(self):
-        format_output = """ En base a la nota selecionada las escalas que puedes utilizar son:
+        format_output = r"""
+        En base a la nota selecionada las escalas que puedes utilizar son:
 
         * **Escala mayor**: se compone por las notas ...
         * **Escala menor**: se compone por las notas ...
         * **Escala pentatonica**: se compone por las notas ...
         * **Escala de blues**: se compone por las notas ...
         * **Escala de jazz**: se compone por las notas ...
+        
         """
 
         prompt = f"""En base a la nota {self.note}, muestrame su escala mayor, escala menor y escala pentatonica. Por favor sigue este formato para responder: {format_output}

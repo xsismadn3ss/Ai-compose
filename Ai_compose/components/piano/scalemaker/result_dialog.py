@@ -1,6 +1,7 @@
 import reflex as rx
 from .state import ScaleMakerState
 from ..loading_content import loading
+from ...dark_light_dialog_content import dark_light_alertdialog as dialog_content
 
 
 def result_content(data: str | None = None):
@@ -30,7 +31,7 @@ def result_dialog():
                 on_click=ScaleMakerState.generate_scale(),
             )
         ),
-        rx.alert_dialog.content(
+        dialog_content(
             rx.cond(
                 ScaleMakerState.is_error & ~ScaleMakerState.is_loaded,
                 error_content(),
