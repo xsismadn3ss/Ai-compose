@@ -5,7 +5,7 @@ from ...components.docs_menu.menu import doc_menu
 from .views.container import doc_card
 
 
-url = "docs/Teoría/Escalas"
+url = "/docs/escalas"
 
 @rx.page(route=url, title="¿Qué es una escala?")
 @template
