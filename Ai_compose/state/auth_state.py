@@ -11,6 +11,9 @@ class AuthState(rx.State):
 
     def logout(self):
         self.token = ""
+        return rx.toast.error(
+            "Has cerrado sesión", position='top-center'
+        )
 
     def login(self, form_data: dict) -> rx.Component:
         if form_data["username"] == "" or form_data["password"] == "":
