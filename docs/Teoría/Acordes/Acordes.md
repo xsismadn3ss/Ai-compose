@@ -1,4 +1,4 @@
-# ¿Qué es un acordes?
+# ¿Qué es un acorde?
 
 Un acorde es un conjunto de dos o más [Notas]() que al tocarse a la vez generan [Armonía](), muchas veces tienen [Tonalidad]() y pueden ser mayores o menores.
 
