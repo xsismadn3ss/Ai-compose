@@ -39,7 +39,7 @@ def login_logout_button():
     return rx.cond(
         condition=AuthState.is_logged_in,
         c1=rx.menu.item("Cerrar sesión", on_click=AuthState.logout()),
-        c2=rx.menu.item("Iniciar sesión", on_click=LoginState.login_toast()),
+        c2=rx.menu.item("Iniciar sesión", on_click=rx.redirect("/login")),
     )
 
 
