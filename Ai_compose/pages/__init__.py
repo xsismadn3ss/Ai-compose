@@ -9,5 +9,5 @@ from .docs.introduction import introduction
 from .docs.acordes import *
 
 # solo usar para test
-from .test import ComposeAI
-from .test2 import test
+# from .test import ComposeAI
+# from .test2 import test
