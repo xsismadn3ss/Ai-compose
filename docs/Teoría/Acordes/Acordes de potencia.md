@@ -7,5 +7,5 @@ Se compone por la tónica y su quinta.
 **Construcción:** tónica + 7 semitonos 
 
 **Ejemplo:**
-**C:** C, E, G
-**C5:** C, G
+* **C:** C, E, G
+* **C5:** C, G
