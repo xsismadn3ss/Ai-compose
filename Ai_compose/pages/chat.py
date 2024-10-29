@@ -2,6 +2,8 @@ import reflex as rx
 from ..components.navbar.navbar import navbar
 from Ai_compose.templates.master import chat_template
 from .state import State
+from ..state.auth_state import AuthState
+from ..components.cards import not_logged_in_card
 
 
 def qa(question: str, answer: str) -> rx.Component:
@@ -71,4 +73,12 @@ def action_bar() -> rx.Component:
 @rx.page(route="/chats", title="chats")
 @chat_template
 def chat() -> rx.Component:
-    return rx.container(chat(), action_bar())
+    return rx.cond(
+            AuthState.is_logged_in,
+            rx.container(
+            chat(), action_bar(),
+            ),
+            rx.center(
+                not_logged_in_card()
+            ),
+        )
