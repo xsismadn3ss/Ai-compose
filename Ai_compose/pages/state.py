@@ -16,6 +16,9 @@ class State(rx.State):
 
     def answer(self):
 
+        if self.question == "":
+            return rx.toast.error("Asegurate de escribir algo antes de comenzar", position='top-center')
+
         session = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
