@@ -55,7 +55,7 @@ def index():
             github_card(username="Haluuuu", description="Backend developer"),
             github_card(username="xsismadn3ss", description="Fullstack developer"),
             github_card("Alexandra-Rivera", description="Frontend developer"),
-            github_card("ingrid", description="Backend developer"),
+            # github_card("ingrid", description="Backend developer"),
             direction="row",
             justify="center",
             align="center",
