@@ -18,7 +18,7 @@ white_keys_style = {
     "border_radius": "0.5em",
     "margin_x": "0.2em",
     "color": "#202020",
-    "height": "3rem"
+    "height": "4.2rem"
 }
 
 piano_style = {
