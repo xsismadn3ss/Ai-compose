@@ -108,12 +108,13 @@ def index():
                 rx.blockquote("Token Authentication"),
                 rx.blockquote("Reflection"),
                 rx.blockquote("Dependency Inyection"),
-                spacing="2",
+                spacing="3",
                 wrap="wrap",
                 justify="center",
             ),
             size='3',
             margin_bottom="3rem",
+            max_width='38rem'
         ),
         ##########
         direction="column",
