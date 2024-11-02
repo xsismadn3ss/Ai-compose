@@ -13,7 +13,7 @@ routes = Routes(
     notes="/notes/",
     login="/login/",
     register="/register/",
-    account="/account/{}",
+    account="/account/",
     chat="/chat/{}",
     new_chat="/chat/create/",
 )
