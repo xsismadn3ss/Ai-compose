@@ -32,6 +32,6 @@ class User(BaseModel):
         )
         return self.api.request(method=Methods.POST, data=data, route=route)
 
-    def user_account(self, token: str, id: int):
-        route = self.account.format(id)
-        return self.api.request(method=Methods.GET, route=route, token=token)
+    # def user_account(self, token: str, id: int):
+    #     route = self.account.format(id)
+    #     return self.api.request(method=Methods.GET, route=route, token=token)
