@@ -1,7 +1,5 @@
 import reflex as rx
 from ..templates.master import template
-from ..components.piano.chordmaker.chord_maker import chord_maker
-from ..components.piano.tonemaker.tone_maker import tone_maker
 from Ai_compose.pages.state import State
 import style
 

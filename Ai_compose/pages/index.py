@@ -5,6 +5,7 @@ from ..components.cards import features_cards
 from ..components.buttons import signup_button, start_button
 from ..components.github_card import github_card
 from ..state.auth_state import AuthState
+from ..components.pricing_card import basic_card, advanced_card, premium_card
 
 
 @rx.page(route="/", title="Inicio", description="Ai Compose aprende tería musical con IA")
@@ -55,7 +56,7 @@ def index():
             github_card(username="Haluuuu", description="Backend developer"),
             github_card(username="xsismadn3ss", description="Fullstack developer"),
             github_card("Alexandra-Rivera", description="Frontend developer"),
-            github_card("ingrid", description="Backend developer"),
+            # github_card("ingrid", description="Backend developer"),
             direction="row",
             justify="center",
             align="center",

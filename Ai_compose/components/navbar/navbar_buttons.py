@@ -24,8 +24,6 @@ def login_button():
             rx.dialog.trigger(
                 rx.button("Iniciar sesión", size="2", border_radius="0.6rem")
             ),
-            rx.dialog.content(
-                login_form_dialog(),
-            ),
+            login_form_dialog(),
         )
     )

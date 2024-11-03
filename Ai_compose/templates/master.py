@@ -33,3 +33,26 @@ def template(page: Callable[[], rx.Component]) -> rx.Component:
         width="100%",
         direction='column'
     )
+
+def chat_template(page:Callable[[], rx.Component])-> rx.Component:
+    return rx.flex(
+        rx.flex(
+            navbar(),
+            padding="0",
+            width="100%",
+            direction="column",
+            style={
+                "position": "fixed",
+                "top": "0",
+                "background": 'transparent',
+                'backdrop_filter': 'blur(20px)'
+            },
+            z_index='1000'
+        ),
+        rx.container(
+            page(),
+            style={"margin_top": "5rem", 'padding': '0.8rem'},  
+        ),
+        width='100%',
+        direction='column'
+    )
