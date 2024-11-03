@@ -8,7 +8,9 @@ from ..state.auth_state import AuthState
 from ..components.pricing_card import basic_card, advanced_card, premium_card
 
 
-@rx.page(route="/", title="Inicio", description="Ai Compose aprende tería musical con IA")
+@rx.page(
+    route="/", title="Inicio", description="Ai Compose aprende tería musical con IA"
+)
 @template
 def index():
     return rx.center(
@@ -42,9 +44,9 @@ def index():
         rx.mobile_only(
             rx.text(
                 "Funcionalidades y documentación",
-                size='4',
-                weight='bold',
-                margin_top='3rem'
+                size="4",
+                weight="bold",
+                margin_top="3rem",
             )
         ),
         features_cards(),
@@ -63,6 +65,57 @@ def index():
             spacing="5",
             margin_bottom="5vh",
             wrap="wrap",
+        ),
+        rx.divider(),
+        rx.text(
+            "Tenologías utilizadas",
+            size="6",
+            weight="bold",
+            margin_top="4rem",
+            margin_bottom="2rem",
+        ),
+        rx.card(
+            rx.logo(),
+            rx.flex(
+                rx.image(src="/linux.svg", width="4rem"),
+                rx.image(src="/django.svg", width="4rem"),
+                rx.image(src="/github.svg", width="4rem"),
+                rx.image(src="/postgresql.svg", width="4rem"),
+                rx.image(src="/ethereum.svg", width="4rem"),
+                rx.image(src="/markdown.svg", width="4rem"),
+                spacing="5",
+                justify="center",
+                wrap="wrap",
+            ),
+            size="3",
+            margin_bottom="2rem",
+        ),
+        rx.text(
+            "Conocimientos adquiridos",
+            size="6",
+            weight="bold",
+            margin_top="2rem",
+            margin_bottom="1rem",
+        ),
+        rx.card(
+            rx.flex(
+                rx.blockquote("Django Rest Framework"),
+                rx.blockquote("REFLEX"),
+                rx.blockquote("Anti Prop Drilling"),
+                rx.blockquote("Web3.py"),
+                rx.blockquote("Railway"),
+                rx.blockquote("INFURA"),
+                rx.blockquote("LocalStorage"),
+                rx.blockquote("Token Authentication"),
+                rx.blockquote("Reflection"),
+                rx.blockquote("Dependency Inyection"),
+                spacing="3",
+                wrap="wrap",
+                justify="center",
+            ),
+            size='3',
+            margin_bottom="3rem",
+            max_width='38rem'
         ),
         ##########
         direction="column",
