@@ -51,6 +51,7 @@ def hamburger():
             rx.menu.item("Piano Roll", on_click=rx.redirect("/piano_roll")),
             rx.menu.item("Chat", on_click=rx.redirect("/chats")),
             rx.menu.item("Documentación", on_click=rx.redirect("/docs")),
+            rx.menu.item("Pricing Plans", on_click=rx.redirect("/pricing_plans")),
             rx.menu.separator(),
             rx.menu.sub(rx.menu.sub_trigger("Tema"), theme_buttons()),
             rx.menu.separator(),
