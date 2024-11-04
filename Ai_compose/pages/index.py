@@ -5,7 +5,7 @@ from ..components.cards import features_cards
 from ..components.buttons import signup_button, start_button
 from ..components.github_card import github_card
 from ..state.auth_state import AuthState
-from ..components.pricing_card import basic_card, advanced_card, premium_card
+from ..components.pricing_card import basic, advanced, premium
 
 
 @rx.page(
