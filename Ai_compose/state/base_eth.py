@@ -19,7 +19,6 @@ class BaseEth(rx.State):
             w3.eth.account.from_key(pk)
             return True
         except Exception as e:
-            print(e)
             return False
 
     def connect_wallet(self):
