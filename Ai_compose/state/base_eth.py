@@ -33,7 +33,8 @@ class BaseEth(rx.State):
                 )
             else:
                 self.valid_pk = False
-                return rx.toast.success(
+                self.pk = ""
+                return rx.toast.error(
                     "No fue posible conectarse, asegurate de ingresar una clave valida", position="top-center"
                 )
             
