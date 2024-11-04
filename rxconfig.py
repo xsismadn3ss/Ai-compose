@@ -68,11 +68,4 @@ bg_transparent_light2 = {
 bg_transparent_dark = {
     "background": "transparent",
     "backdrop_filter": "blur(20px)",
-    # "background_image": """linear-gradient(
-    #     180deg,
-    #     rgb(255, 255, 255, 0.2),
-    #     rgba(68, 52, 116, 0.4),
-    #     rgba(255, 255, 255, 0.2)
-    # )
-    # """,
 }
