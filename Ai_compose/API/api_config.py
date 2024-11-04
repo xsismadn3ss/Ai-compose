@@ -16,7 +16,7 @@ routes = Routes(
     account="/account/",
     chat="/chat/{}",
     new_chat="/chat/create/",
-    payments="/buy_token/",
+    payments="/payments/",
     tokens="/buy_tokens/",
     spent_tokens="/ask/",
 )
@@ -31,7 +31,7 @@ api = API(
 )
 
 user = User(
-    api=api, login=routes.login, register=routes.register, account=routes.register
+    api=api, login=routes.login, register=routes.register, account=routes.account
 )
 chat = Chat(api=api, chat=routes.chat, new_chat=routes.new_chat)
 
@@ -39,7 +39,7 @@ tones = Tones(api=api, tones=routes.tones)
 notes = Notes(api=api, notes=routes.notes)
 scales = Scales(api=api, scales=routes.scales)
 chords = Chords(api=api, chords=routes.chords, generate_chord=routes.generate_chord)
-payments = chords(
+payments = Payment(
     api=api,
     payments=routes.payments,
     tokens=routes.tokens,
