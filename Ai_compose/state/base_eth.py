@@ -54,9 +54,9 @@ class BaseEth(rx.State):
             except Exception as e:
                 self.pk = ""
                 self.valid_pk = False
-                return None
+                return "No conectada"
         else:
-            return None
+            return "No conectada"
 
     @rx.var
     def balance(self):

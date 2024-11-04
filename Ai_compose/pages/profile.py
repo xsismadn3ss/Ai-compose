@@ -21,8 +21,9 @@ def coins():
 def wallet_info():
     return rx.flex(
         rx.text.strong("Cartera: "),
-        rx.text(ProfileState.wallet_addres),
+        rx.text(ProfileState.wallet_addres, color_scheme="gray"),
         spacing="2",
+        wrap="wrap",
     )
 
 
@@ -32,6 +33,7 @@ def balance_info():
         rx.text.strong("Saldo:"),
         rx.text("{} ETH".format(balance), color_scheme="gray"),
         spacing="2",
+        wrap='wrap'
     )
 
 
@@ -68,7 +70,7 @@ def profile_card():
 
 @rx.page(
     "/account",
-    title="Ai compose - {}".format(ProfileState.username) if AuthState.is_logged_in else "Mi perfil",
+    title="Ai compose - {}".format(ProfileState.username),
     description="Ai compose. Aprende de teoría músical de forma autodidacta",
 )
 @template

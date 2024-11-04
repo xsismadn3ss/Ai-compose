@@ -19,7 +19,7 @@ class ProfileState(BaseEth):
     def username(self):
         data = self.request_data()
         if data: return data['username']
-        return None
+        return "Usuario"
     
     @rx.var
     def user_email(self):
