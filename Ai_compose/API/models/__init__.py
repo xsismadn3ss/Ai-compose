@@ -11,3 +11,4 @@
 from .music import Notes, Tones, Chords, Scales
 from .user import User
 from .chat import Chat
+from .payments import *
