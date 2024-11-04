@@ -15,7 +15,11 @@ def navbar() -> rx.Component:
                     navbar_link("Inicio", "/"),
                     navbar_link("Piano Roll", "/piano_roll"),
                     navbar_link("Documentación", "/docs"),
-                    navbar_link("Pricing Plans", "/pricing_plans"),
+                    navbar_link("Pricing Plans", "/pricing"),
+                    rx.cond(
+                        AuthState.is_logged_in,
+                        navbar_link("Cuenta", "/account"),
+                    ),
                     rx.link(
                         rx.button(
                             rx.text("Chat", color_scheme="purple", weight="bold"),
