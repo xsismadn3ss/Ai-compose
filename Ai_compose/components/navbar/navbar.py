@@ -15,6 +15,7 @@ def navbar() -> rx.Component:
                     navbar_link("Inicio", "/"),
                     navbar_link("Piano Roll", "/piano_roll"),
                     navbar_link("Documentación", "/docs"),
+                    navbar_link("Saber más", "/about"),
                     navbar_link("Pricing Plans", "/pricing"),
                     rx.cond(
                         AuthState.is_logged_in,
