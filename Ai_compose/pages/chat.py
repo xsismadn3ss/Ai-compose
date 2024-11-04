@@ -69,7 +69,7 @@ def action_bar() -> rx.Component:
     )
 
 
-@rx.page(route="/chats", title="chats")
+@rx.page(route="/chats", title="Ai compose - Chat interactico con IA")
 @chat_template
 def chat() -> rx.Component:
     return rx.cond(

@@ -68,7 +68,8 @@ def profile_card():
 
 @rx.page(
     "/account",
-    title="Ai compose - perfil",
+    title="Ai compose - {}".format(ProfileState.username) if AuthState.is_logged_in else "Mi perfil",
+    description="Ai compose. Aprende de teoría músical de forma autodidacta",
 )
 @template
 def profile():

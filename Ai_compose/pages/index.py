@@ -9,7 +9,7 @@ from ..components.pricing_card import basic, advanced, premium
 
 
 @rx.page(
-    route="/", title="Inicio", description="Ai Compose aprende tería musical con IA"
+    route="/", title="Inicio", description="Ai Compose aprende teroía musical con IA"
 )
 @template
 def index():

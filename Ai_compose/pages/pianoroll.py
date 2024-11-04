@@ -8,7 +8,7 @@ from ..components.piano.chordmaker.chord_maker import chord_maker
 from ..components.piano.tonemaker.tone_maker import tone_maker
 from ..components.piano.scalemaker.scale_maker import scale_maker
 
-@rx.page(route="/piano_roll", title="Piano roll", description='Explora acordes, tonalidades y escalas usando IA')
+@rx.page(route="/piano_roll", title="Ai Compose -Piano roll", description='Explora acordes, tonalidades y escalas usando IA')
 @template
 def painoRoll():
     return rx.cond(

@@ -5,7 +5,7 @@ from ..components.pricing_card import basic, advanced, premium
 
 @rx.page(
     "/pricing",
-    title="Comprar tokens",
+    title="Ai Compose - Comprar tokens",
     description="Compra nuestros tokens para usar en nuestra aplicación 👍",
 )
 @template
