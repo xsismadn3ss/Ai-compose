@@ -39,9 +39,9 @@ def m1():
             """,
             font_size="15px",
         ),
-        align='center',
-        justify='center',
-        direction='column'
+        align="center",
+        justify="center",
+        direction="column",
     )
 
 
@@ -72,7 +72,11 @@ def m2():
     )
 
 
-@rx.page(route="/about", title="Saber más")
+@rx.page(
+    route="/about",
+    title="Ai Compose- Saber más",
+    description="Aprende más sobre quienes somos y un poco sobre como desarrollamos este producto",
+)
 @template
 def about():
     return rx.center(
