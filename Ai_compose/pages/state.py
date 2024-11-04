@@ -1,24 +1,31 @@
 # state.py
 import reflex as rx
-import asyncio
+from ..state.eth_state import EthState
+from ..state.profile_state import ProfileState
+from ..API.api_config import payments
 from g4f.client import Client
 
 client = Client()
 
 
-class State(rx.State):
+class State(EthState):
     question: str = ""
     chat_history: list[tuple[str, str]] = []
 
     def clear_history(self):
         self.chat_history = []
-        return rx.toast.success("Iniciando un a nueva conversación")
+        return rx.toast.success(
+            "Iniciando un a nueva conversación", position="top-center"
+        )
 
     def answer(self):
 
         if self.question == "":
-            return rx.toast.error("Asegurate de escribir algo antes de comenzar", position='top-center')
+            return rx.toast.error(
+                "Asegurate de escribir algo antes de comenzar", position="top-center"
+            )
 
+        data = payments.spenttoken(self.token)
         session = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
@@ -49,3 +56,5 @@ class State(rx.State):
                     answer,
                 )
         yield
+
+        return rx.toast("Has gastado un token, ahora tienes {} Tokens".format(data["left"]))

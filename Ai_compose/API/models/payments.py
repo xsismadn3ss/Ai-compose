@@ -3,7 +3,7 @@ from ..api_client import Methods
 from .base_model import BaseModel
 
 
-class Pyament(BaseModel):
+class Payment(BaseModel):
     def __init__(self, api, **routes):
         super().__init__(api, **routes)
 
@@ -18,8 +18,8 @@ class Pyament(BaseModel):
             method=Methods.GET, route=route, token=token
         )
 
-    def payment_history(self):
+    def payment_history(self, token:str):
         route = self.payments
         return self.api.request(
-            method=Methods.GET, route=route
+            method=Methods.GET, route=route, token=token
         )

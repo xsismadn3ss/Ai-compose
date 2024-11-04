@@ -4,10 +4,11 @@ from .fx.validations import validate_email, validate_password
 
 
 class AuthState(rx.State):
-    token: str = rx.LocalStorage("")
+    token: str = rx.LocalStorage("", name='token')
     form_data: dict = {}
     username: str = ""
     password: str = ""
+
 
     def logout(self):
         self.token = ""
@@ -110,3 +111,5 @@ class AuthState(rx.State):
     @rx.var
     def is_logged_in(self):
         return self.token != ""
+    
+

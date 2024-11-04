@@ -1,5 +1,4 @@
 import reflex as rx
-from ..components.navbar.navbar import navbar
 from Ai_compose.templates.master import chat_template
 from .state import State
 from ..state.auth_state import AuthState
