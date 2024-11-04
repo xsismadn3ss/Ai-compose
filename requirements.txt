@@ -13,3 +13,4 @@ python-dotenv==1.0.1
 pywebview==5.3.2
 reflex
 reflex==0.6.3.post1
+web3
