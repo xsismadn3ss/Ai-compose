@@ -6,7 +6,7 @@ def github_card(username: str, description: str = "") -> rx.Component:
     github_data = requests.get(f"https://api.github.com/users/{username}").json()
     
     if 'html_url' in github_data:
-        name = github_data["name"]
+        name = github_data["name"] if github_data["name"] is not None else username
         url = github_data["html_url"]
         if len(name) > 10:
             name = name[0:10] + "..."

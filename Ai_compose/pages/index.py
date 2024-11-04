@@ -57,8 +57,8 @@ def index():
         rx.flex(
             github_card(username="Haluuuu", description="Backend developer"),
             github_card(username="xsismadn3ss", description="Fullstack developer"),
-            github_card("Alexandra-Rivera", description="Frontend developer"),
-            # github_card("ingrid", description="Backend developer"),
+            github_card(username="Alexandra-Rivera", description="Frontend developer"),
+            github_card(username="ieaguirre", description="UI/UX"),
             direction="row",
             justify="center",
             align="center",
