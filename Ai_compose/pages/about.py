@@ -81,7 +81,7 @@ def about():
             rx.text(
                 "Nuestro sitio web permite aprender de forma autodidacta a aquellos usuarios que estan interesados en la música y les interesa crear algo nuevo y fresco por su cuenta. Por el momento nuestro sitio aborda temás basicos y fundamentales de composición como aprender que es una escala, un acordes y una tonalidad, ademas de mostrar como se compone y como se puede utilizar para crear musica nueva."
             ),
-            rx.container(chord_maker()),
+            # rx.container(chord_maker()),
         ),
         rx.heading("Framework Utilizado"),
         info_card(
